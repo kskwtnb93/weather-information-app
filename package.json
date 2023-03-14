@@ -7,12 +7,13 @@
     "dev": "vite",
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
-		"lint": "eslint --fix src/*.{ts,vue} && eslint --fix src/**/*.{ts,vue}",
+    "lint": "eslint --fix src/*.{ts,vue} && eslint --fix src/**/*.{ts,vue}",
     "format": "prettier -w src/*.{ts,vue} && prettier -w src/**/*.{ts,vue}",
     "fix": "npm run format && npm run lint"
   },
   "dependencies": {
-    "vue": "^3.2.45"
+    "vue": "^3.2.45",
+    "vue-router": "^4.1.6"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.54.1",
