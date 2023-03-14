@@ -12,6 +12,8 @@ import { Vector as VectorLayer } from 'ol/layer'
 import { Vector as VectorSource } from 'ol/source'
 import { Icon, Style } from 'ol/style'
 
+import CurrentWeatherData from '../templates/CurrentWeatherData.vue'
+
 // 経度・緯度の初期値は東京駅
 // const lat = ref<number>(35.680959106959)
 // const lon = ref<number>(139.76730676352)
@@ -125,10 +127,21 @@ onMounted(() => {
 </script>
 
 <template>
-  <p>{{ lat }}</p>
-  <p>{{ lon }}</p>
+  <!-- <p>{{ lat }}</p>
+  <p>{{ lon }}</p> -->
 
-  <div id="map"></div>
+  <div class="parent">
+    <div class="children">
+      <CurrentWeatherData
+        :lat="lat"
+        :lon="lon"
+      />
+    </div>
+
+    <div class="children">
+      <div id="map"></div>
+    </div>
+  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -136,5 +149,14 @@ onMounted(() => {
   width: 100%;
   height: 240px;
   margin: 0 auto;
+}
+
+.parent {
+  display: flex;
+  flex-wrap: wrap;
+
+  .children {
+    width: 100%;
+  }
 }
 </style>
