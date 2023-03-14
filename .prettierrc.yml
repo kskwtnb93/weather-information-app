@@ -1,0 +1,6 @@
+tabWidth: 2
+prinitWidth: 100
+useTabs: false
+semi: false
+singleQuote: true
+singleAttributePerLine: true
