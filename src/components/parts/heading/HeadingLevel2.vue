@@ -33,9 +33,9 @@ const props = defineProps({
   font-weight: bold;
 }
 
-@media screen and (max-width:750px) {
-	// .heading {
-	// 	font-size: 2rem;
-	// }
+@media screen and (max-width: 750px) {
+  // .heading {
+  // 	font-size: 2rem;
+  // }
 }
 </style>

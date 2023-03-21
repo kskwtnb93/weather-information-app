@@ -47,23 +47,23 @@ import CoordinateView from '../views/CoordinateView.vue'
   }
 }
 
-@media screen and (max-width:750px) {
-	.home {
-		&__header {
-			padding: 4rem 1.6rem 0;
+@media screen and (max-width: 750px) {
+  .home {
+    &__header {
+      padding: 4rem 1.6rem 0;
 
-			&__heading {
-				margin-bottom: 0.8rem;
-			}
-		}
+      &__heading {
+        margin-bottom: 0.8rem;
+      }
+    }
 
-		// &__main {
-		// }
+    // &__main {
+    // }
 
-		&__lead {
-			font-size: 1.4rem;
-			line-height: 1.5;
-		}
-	}
+    &__lead {
+      font-size: 1.4rem;
+      line-height: 1.5;
+    }
+  }
 }
 </style>
