@@ -32,4 +32,10 @@ const props = defineProps({
   font-size: 4.8rem;
   font-weight: bold;
 }
+
+@media screen and (max-width:750px) {
+	.heading {
+		font-size: 3.2rem;
+	}
+}
 </style>
