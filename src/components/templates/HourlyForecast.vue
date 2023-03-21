@@ -15,7 +15,7 @@ import {
   // formatMeters,
 } from '../../mixins/formatWeatherData'
 
-import HeadingComponent from '../parts/heading/HeadingComponent.vue'
+import HeadingLevel2 from '../parts/heading/HeadingLevel2.vue'
 
 import dummyHourlyForecast from '../../dummy/hourlyForecast'
 
@@ -292,7 +292,7 @@ watch(
 
 <template>
   <div>
-    <HeadingComponent
+    <HeadingLevel2
       tag="h2"
       text="Hourly forecast"
     />

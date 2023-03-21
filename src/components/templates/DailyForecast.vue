@@ -10,7 +10,7 @@ import { getWeatherIconPath } from '../../mixins/getWeatherIcon'
 
 import type { DailyForecast } from '../../types/DailyForecast'
 
-import HeadingComponent from '../parts/heading/HeadingComponent.vue'
+import HeadingLevel2 from '../parts/heading/HeadingLevel2.vue'
 
 import dummyDailyForecast from '../../dummy/dailyForecast'
 
@@ -70,7 +70,7 @@ watch(
 
 <template>
   <div class="df">
-    <HeadingComponent
+    <HeadingLevel2
       tag="h2"
       text="Daily Forecast"
     />
