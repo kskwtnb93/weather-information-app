@@ -171,6 +171,7 @@ const updateLineChartOptions = (updateData: number[]): object => {
 
   const newOptions = {
     responsive: true,
+    maintainAspectRatio: true,
     tooltips: {
       display: false,
       enabled: false,
@@ -274,10 +275,10 @@ watch(
     <div class="hf__chart">
       <div
         class="hf__chart__wrapper"
-        style="width: 4800px; height: 360px"
+        style="width: 4800px; height: 100%"
       >
         <Line
-          style="width: 4800px; height: 360px"
+          style="width: 4800px; height: 100%"
           :data="chartData"
           :options="chartOptions"
         />
@@ -296,10 +297,28 @@ watch(
 
   &__chart {
     width: 100%;
+    height: 39rem;
+    padding-bottom: 3rem;
     overflow-x: scroll;
 
     // &__wrapper {
     // }
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .hf {
+    &__heading {
+      margin-bottom: 2rem;
+    }
+
+    &__chart {
+      height: 32rem;
+      padding-bottom: 2rem;
+
+      // &__wrapper {
+      // }
+    }
   }
 }
 </style>
