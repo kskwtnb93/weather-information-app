@@ -264,16 +264,20 @@ watch(
 </script>
 
 <template>
-  <div>
+  <div class="hf">
     <HeadingLevel2
+      class="hf__heading"
       tag="h2"
       text="Hourly forecast"
     />
 
-    <div>
-      <div style="width: 4800px; height: 320px">
+    <div class="hf__chart">
+      <div
+        class="hf__chart__wrapper"
+        style="width: 4800px; height: 360px"
+      >
         <Line
-          style="width: 4800px; height: 320px"
+          style="width: 4800px; height: 360px"
           :data="chartData"
           :options="chartOptions"
         />
@@ -282,4 +286,20 @@ watch(
   </div>
 </template>
 
-<style scoped></style>
+<style lang="scss" scoped>
+.hf {
+  width: 100%;
+
+  &__heading {
+    margin-bottom: 2.7rem;
+  }
+
+  &__chart {
+    width: 100%;
+    overflow-x: scroll;
+
+    // &__wrapper {
+    // }
+  }
+}
+</style>
