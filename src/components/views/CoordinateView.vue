@@ -13,6 +13,7 @@ import { Vector as VectorSource } from 'ol/source'
 import { Icon, Style } from 'ol/style'
 
 import CurrentWeatherData from '../templates/CurrentWeatherData.vue'
+import HourlyForecast from '../templates/HourlyForecast.vue'
 
 // 経度・緯度の初期値は東京駅
 // const lat = ref<number>(35.680959106959)
@@ -140,6 +141,13 @@ onMounted(() => {
 
     <div class="children">
       <div id="map"></div>
+    </div>
+
+    <div class="children">
+      <HourlyForecast
+        :lat="lat"
+        :lon="lon"
+      />
     </div>
   </div>
 </template>
