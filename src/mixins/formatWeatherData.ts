@@ -28,9 +28,9 @@ export const formatDate1 = (unixtime: number, timezone: number): string => {
   const ampm = hour < 12 ? 'am' : 'pm'
   const hour12 = hour % 12 || 12
   const minute = adjustedDate.getUTCMinutes()
-  const formattedDate = `${monthName} ${adjustedDate.getUTCDate()}, ${hour12}:${minute
+  const formattedDate = `${monthName} ${adjustedDate.getUTCDate()}, ${hour12
     .toString()
-    .padStart(2, '0')} ${ampm}`
+    .padStart(2, '0')}:${minute.toString().padStart(2, '0')} ${ampm}`
 
   return formattedDate
 }
