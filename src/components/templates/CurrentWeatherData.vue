@@ -247,7 +247,7 @@ watch(
       }
 
       &__region {
-        font-size: 2.4rem;
+        font-size: 2.8rem;
       }
     }
 
