@@ -72,7 +72,7 @@ onMounted(() => {
     target: 'map',
     view: new View({
       center: coordinateEPSG3857,
-      zoom: 15,
+      zoom: 1,
     }),
   })
 
@@ -129,50 +129,62 @@ onMounted(() => {
 </script>
 
 <template>
-  <!-- <p>{{ lat }}</p>
-  <p>{{ lon }}</p> -->
+  <div class="coordinate">
+    <div class="coordinate__parent">
+      <div class="coordinate__children">
+        <CurrentWeatherData
+          :lat="lat"
+          :lon="lon"
+        />
+      </div>
 
-  <div class="parent">
-    <div class="children">
-      <CurrentWeatherData
-        :lat="lat"
-        :lon="lon"
-      />
-    </div>
+      <div class="coordinate__children">
+        <div
+          id="map"
+          class="coordinate__children__map"
+        ></div>
+      </div>
 
-    <div class="children">
-      <div id="map"></div>
-    </div>
+      <div class="coordinate__children">
+        <HourlyForecast
+          :lat="lat"
+          :lon="lon"
+        />
+      </div>
 
-    <div class="children">
-      <HourlyForecast
-        :lat="lat"
-        :lon="lon"
-      />
-    </div>
-
-    <div class="children">
-      <DailyForecast
-        :lat="lat"
-        :lon="lon"
-      />
+      <div class="coordinate__children">
+        <DailyForecast
+          :lat="lat"
+          :lon="lon"
+        />
+      </div>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-#map {
-  width: 100%;
-  height: 240px;
-  margin: 0 auto;
-}
+.coordinate {
+  &__parent {
+    display: flex;
+    flex-wrap: wrap;
+  }
 
-.parent {
-  display: flex;
-  flex-wrap: wrap;
+  &__children {
+    position: relative;
+    width: 50%;
+    padding: 3.2rem 1.6rem;
 
-  .children {
-    width: 100%;
+    &__map {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      min-height: 28rem;
+      margin: 0 auto;
+    }
   }
 }
 </style>
