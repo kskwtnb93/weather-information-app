@@ -1,5 +1,5 @@
-// UNIX時間を「Mar 14, 03:55 pm」のような形式に変換する処理
-export const formatDate = (unixtime: number, timezone: number): string => {
+// UNIX時間（例: 1661857200）を「Mar 14, 03:55 pm」の形式に変換する処理
+export const formatDate1 = (unixtime: number, timezone: number): string => {
   // Unix時間をDateオブジェクトに変換する
   const date = new Date(unixtime * 1000)
 
@@ -35,7 +35,32 @@ export const formatDate = (unixtime: number, timezone: number): string => {
   return formattedDate
 }
 
-// 風向をdegから表記を直す処理
+// UNIX時間（例: 1661857200）を「Sun, Mar 19」の形式に変換する処理
+export const formatDate2 = (unixtime: number): string => {
+  const date = new Date(unixtime * 1000)
+  const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+  const monthsOfYear = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+  ]
+  const dayOfWeek = daysOfWeek[date.getUTCDay()]
+  const monthOfYear = monthsOfYear[date.getUTCMonth()]
+  const dayOfMonth = date.getUTCDate().toString().padStart(2, '0')
+
+  return `${dayOfWeek}, ${monthOfYear} ${dayOfMonth}`
+}
+
+// 風向を deg から表記を直す処理
 export const formatWindDirection = (degrees: number): string => {
   const directions = [
     'N',

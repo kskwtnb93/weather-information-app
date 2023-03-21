@@ -3,7 +3,7 @@ import { ref, watch } from 'vue'
 import axios from 'axios'
 
 import {
-  formatDate,
+  formatDate1,
   formatWindDirection,
   formatkelvinToCelsius,
   formatDewPoint,
