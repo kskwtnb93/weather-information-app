@@ -98,7 +98,7 @@ watch(
   <div>
     <div>
       <p>
-        {{ formatDate(currentWeatherData.dt, currentWeatherData.timezone) }}
+        {{ formatDate1(currentWeatherData.dt, currentWeatherData.timezone) }}
       </p>
       <p>
         {{ currentWeatherData.name ? currentWeatherData.name : 'unknown' }}
