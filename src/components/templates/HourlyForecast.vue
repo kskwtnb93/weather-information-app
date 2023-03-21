@@ -189,7 +189,8 @@ const updateLineChartData = (
   return newData
 }
 
-const updateLineChartOptions = (updateData: number[]): ChartOptions<'line'> => {
+// const updateLineChartOptions = (updateData: number[]): ChartOptions<'line'> => {
+const updateLineChartOptions = (updateData: number[]): object => {
   const minTemp = Math.min(...updateData)
   const maxTemp = Math.max(...updateData)
 
@@ -210,7 +211,7 @@ const updateLineChartOptions = (updateData: number[]): ChartOptions<'line'> => {
             size: 12,
           },
           stepSize: 5,
-          callback: (value: any) => `${value}°`,
+          callback: (value: number) => `${value}°`,
         },
         grid: {
           // display: false
