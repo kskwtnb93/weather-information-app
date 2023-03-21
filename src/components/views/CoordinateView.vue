@@ -139,10 +139,12 @@ onMounted(() => {
       </div>
 
       <div class="coordinate__children">
-        <div
-          id="map"
-          class="coordinate__children__map"
-        ></div>
+        <div class="coordinate__map-wrapper">
+          <div
+            id="map"
+            class="coordinate__map"
+          ></div>
+        </div>
       </div>
 
       <div class="coordinate__children">
@@ -173,18 +175,47 @@ onMounted(() => {
     position: relative;
     width: 50%;
     padding: 3.2rem 1.6rem;
-
-    &__map {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      width: 100%;
-      height: 100%;
-      min-height: 28rem;
-      margin: 0 auto;
-    }
   }
+
+	// &__map-wrapper {
+	// }
+
+	&__map {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		width: 100%;
+		height: 100%;
+		min-height: 28rem;
+		margin: 0 auto;
+	}
+}
+
+@media screen and (max-width:750px) {
+	.coordinate {
+		// &__parent {
+		// }
+
+		&__children {
+			width: 100%;
+			padding: 1.6rem;
+			margin-top: 1.6rem;
+
+			&:last-child {
+				margin-top: 0;
+			}
+		}
+
+		&__map-wrapper {
+			height: 22rem;
+		}
+
+		&__map {
+			height: 100%;
+			min-height: 22rem;
+		}
+	}
 }
 </style>

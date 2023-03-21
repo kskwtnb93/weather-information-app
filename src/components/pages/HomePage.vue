@@ -27,7 +27,7 @@ import CoordinateView from '../views/CoordinateView.vue'
 <style lang="scss" scoped>
 .home {
   &__header {
-    padding: 4rem 1.5rem;
+    padding: 4rem 1.6rem;
     max-width: 900px;
     margin: 0 auto;
 
@@ -45,5 +45,25 @@ import CoordinateView from '../views/CoordinateView.vue'
   &__lead {
     font-size: 1.6rem;
   }
+}
+
+@media screen and (max-width:750px) {
+	.home {
+		&__header {
+			padding: 4rem 1.6rem 0;
+
+			&__heading {
+				margin-bottom: 0.8rem;
+			}
+		}
+
+		// &__main {
+		// }
+
+		&__lead {
+			font-size: 1.4rem;
+			line-height: 1.5;
+		}
+	}
 }
 </style>
