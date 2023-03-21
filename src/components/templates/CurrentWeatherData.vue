@@ -101,7 +101,11 @@ watch(
         {{ formatDate1(currentWeatherData.dt, currentWeatherData.timezone) }}
       </p>
       <p>
-        {{ currentWeatherData.name ? currentWeatherData.name : 'unknown' }}
+        {{
+          currentWeatherData.name
+            ? currentWeatherData.name
+            : 'Could not get region name.'
+        }}
         {{
           currentWeatherData.sys.country
             ? `, ${currentWeatherData.sys.country}`
