@@ -134,8 +134,6 @@ const createData = (): number[] => {
     result.push(item)
   }
 
-  // console.log(result)
-
   return result
 }
 
@@ -144,30 +142,10 @@ const updateLineChartData = (
   updateLabels2: string[],
   updateData: number[]
 ): ChartData<'line'> => {
-  // console.log('updateLineChartData')
-  // const labels1 = updateLabels1
   const labels2 = updateLabels2
   const data = updateData
 
-  // chartData.value.labels = updateLabels
-  // chartData.value.datasets[0].data = updateData
   const newData = {
-    // labels: [
-    // 	['2015', 'トレンディエンジェル', '', 'test'],
-    // 	['2016', '銀シャリ', '', 'test'],
-    // 	['2017', 'とろサーモン', '', 'test'],
-    // 	['2018', '霜降り明星', '', 'test'],
-    // 	['2019', 'ミルクボーイ', '', 'test'],
-    // 	['2020', 'マヂカルラブリー', '', 'test']
-    // ],
-    // labels: [
-    // 	{ year: 2015, winner: 'トレンディエンジェル'},
-    // 	{ year: 2016, winner: '銀シャリ'},
-    // 	{ year: 2017, winner: 'とろサーモン'},
-    // 	{ year: 2018, winner: '霜降り明星'},
-    // 	{ year: 2019, winner: 'ミルクボーイ'},
-    // 	{ year: 2020, winner: 'マヂカルラブリー'}
-    // ],
     // labels: {
     // 	x: labels1,
     // 	x1: labels2,
@@ -175,13 +153,11 @@ const updateLineChartData = (
     labels: labels2,
     datasets: [
       {
-        // label: 'Dataset',
         data: data,
         borderColor: '#eb6e4c',
         pointStyle: 'circle',
         pointRadius: 0,
         lineTension: 0.3,
-        // pointHoverRadius: 15,
       },
     ],
   }
@@ -189,7 +165,6 @@ const updateLineChartData = (
   return newData
 }
 
-// const updateLineChartOptions = (updateData: number[]): ChartOptions<'line'> => {
 const updateLineChartOptions = (updateData: number[]): object => {
   const minTemp = Math.min(...updateData)
   const maxTemp = Math.max(...updateData)
@@ -225,7 +200,6 @@ const updateLineChartOptions = (updateData: number[]): object => {
             size: 10,
           },
           // callback: function(val: any, index: any): any {
-          //   // Hide every 2nd tick label
           //   return this.getLabelForValue(val)
           // },
           maxRotation: 0,
@@ -277,8 +251,6 @@ watch(
     // const newLabels1 = createLabels1()
     const newLabels2 = createLabels2()
     const newData = createData()
-
-    // console.log(newLabels2)
 
     chartData.value = updateLineChartData(
       // newLabels1,
