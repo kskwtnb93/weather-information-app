@@ -95,71 +95,146 @@ watch(
 </script>
 
 <template>
-  <div>
-    <div>
-      <p>
-        {{ formatDate1(currentWeatherData.dt, currentWeatherData.timezone) }}
-      </p>
-      <p>
-        {{
-          currentWeatherData.name
-            ? currentWeatherData.name
-            : 'Could not get region name.'
-        }}
-        {{
-          currentWeatherData.sys.country
-            ? `, ${currentWeatherData.sys.country}`
-            : ''
-        }}
+  <div class="cwd">
+    <div class="cwd__section">
+      <div class="cwd__header">
+        <p class="cwd__header__datetime">
+          {{ formatDate1(currentWeatherData.dt, currentWeatherData.timezone) }}
+        </p>
+        <p class="cwd__header__region">
+          {{
+            currentWeatherData.name
+              ? currentWeatherData.name
+              : 'Could not get region name.'
+          }}{{
+            currentWeatherData.sys.country
+              ? `, ${currentWeatherData.sys.country}`
+              : ''
+          }}
+        </p>
+      </div>
+
+      <div class="cwd__summary1">
+        <p class="cwd__summary1__icon">
+          <img
+            :src="getWeatherIconPath(currentWeatherData.weather[0].icon, '@4x')"
+            alt="Weather Icon"
+          />
+        </p>
+
+        <p class="cwd__summary1__temp">
+          {{ formatkelvinToCelsius(currentWeatherData.main.temp) }}°C
+        </p>
+      </div>
+
+      <p class="cwd__summary2">
+        <span class="cwd__summary2__feels">
+          Feels like
+          {{ formatkelvinToCelsius(currentWeatherData.main.feels_like) }}°C.
+        </span>
+        <span class="cwd__summary2__description">{{ currentWeatherData.weather[0].description }}.</span>
+        <!-- <p>Gentle Breeze.</p> -->
       </p>
     </div>
 
-    <div>
-      <p>
-        <img
-          :src="getWeatherIconPath(currentWeatherData.weather[0].icon, '@4x')"
-          alt="Weather Icon"
-        />
-      </p>
+    <div class="cwd__details">
+      <ul class="cwd__details__list">
+        <li class="cwd__details__list__item">
+          <span class="bold">Wind:</span> {{ currentWeatherData.wind.speed }}m/s
+          {{ formatWindDirection(currentWeatherData.wind.deg) }}
+        </li>
 
-      <p>{{ formatkelvinToCelsius(currentWeatherData.main.temp) }}°C</p>
+        <li class="cwd__details__list__item">
+          <span class="bold">Pressure:</span>
+          {{ currentWeatherData.main.pressure }}hPa
+        </li>
+
+        <li class="cwd__details__list__item">
+          <span class="bold">Humidity:</span>
+          {{ currentWeatherData.main.humidity }}%
+        </li>
+
+        <!-- <li class="cwd__details__list__item"><span class="bold">UV：</span> ？？？？？？</li> -->
+
+        <li class="cwd__details__list__item">
+          <span class="bold">Dew point:</span>
+          {{
+            formatDewPoint(
+              formatkelvinToCelsius(currentWeatherData.main.temp),
+              currentWeatherData.main.humidity
+            )
+          }}
+        </li>
+
+        <li class="cwd__details__list__item">
+          <span class="bold">Visibility:</span>
+          {{ formatMeters(currentWeatherData.visibility) }}m
+        </li>
+      </ul>
     </div>
-
-    <div>
-      <p>
-        Feels like
-        {{ formatkelvinToCelsius(currentWeatherData.main.feels_like) }}°C.
-      </p>
-      <p>{{ currentWeatherData.weather[0].description }}.</p>
-      <!-- <p>Gentle Breeze.（そよ風）</p> -->
-    </div>
-
-    <ul>
-      <li>
-        風速：{{ currentWeatherData.wind.speed }}m/s
-        {{ formatWindDirection(currentWeatherData.wind.deg) }}
-      </li>
-
-      <li>気圧：{{ currentWeatherData.main.pressure }}hPa</li>
-
-      <li>湿度：{{ currentWeatherData.main.humidity }}%</li>
-
-      <!-- <li>UV：？？？？？？</li> -->
-
-      <li>
-        露点：{{
-          formatDewPoint(
-            formatkelvinToCelsius(currentWeatherData.main.temp),
-            currentWeatherData.main.humidity
-          )
-        }}
-      </li>
-
-      <li>視程：{{ formatMeters(currentWeatherData.visibility) }}m</li>
-    </ul>
   </div>
-
-  <!-- <p>{{ currentWeatherData }}</p> -->
 </template>
 
-<style scoped></style>
+<style lang="scss" scoped>
+.cwd {
+  // &__section {
+  // }
+
+  &__header {
+    &__datetime {
+      font-size: 1.6rem;
+      color: #eb6e4c;
+      margin-bottom: 1.2rem;
+    }
+
+    &__region {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+  }
+
+  &__summary1 {
+    display: flex;
+    align-items: center;
+    min-height: 10rem;
+
+    &__icon {
+      width: 100px;
+      margin-right: 0.6rem;
+    }
+
+    &__temp {
+      font-size: 2.8rem;
+    }
+  }
+
+  &__summary2 {
+    font-size: 1.6rem;
+    font-weight: bold;
+  }
+
+  &__details {
+    margin-top: 2rem;
+
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+      width: 300px;
+
+      &__item {
+        width: 50%;
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+        padding-right: 1.5rem;
+
+        // & + & {
+        // 	margin-top: 1rem;
+        // }
+
+        // > .bold {
+        // }
+      }
+    }
+  }
+}
+</style>
