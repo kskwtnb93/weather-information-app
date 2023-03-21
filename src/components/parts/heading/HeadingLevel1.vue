@@ -29,7 +29,7 @@ const props = defineProps({
 
 <style lang="scss" scoped>
 .heading {
-	font-size: 2.4rem;
+  font-size: 4.8rem;
   font-weight: bold;
 }
 </style>
