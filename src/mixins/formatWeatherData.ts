@@ -85,6 +85,7 @@ export const formatWindDirection = (degrees: number): string => {
 }
 
 // Kelvin(K) を Celsius(C) に変換する処理
+// 例:299.66 → 26
 export const formatkelvinToCelsius = (kelvin: number): number => {
   const celsius = kelvin - 273.15
   return Math.floor(celsius)
@@ -102,7 +103,7 @@ export const formatDewPoint = (
   return `${Math.round(dewPoint)}°C`
 }
 
-// m → kmになおす処理
+// m を km 表記に変化する処理
 export const formatMeters = (m: number): number => {
   const km = m / 1000
   return Math.round(km * 10) / 10
