@@ -3,8 +3,8 @@ import { ref, watch, defineProps } from 'vue'
 // import axios from 'axios'
 
 import {
-	formatDate2,
-	formatkelvinToCelsius
+  formatDate2,
+  formatkelvinToCelsius,
 } from '../../mixins/formatWeatherData'
 import { getWeatherIconPath } from '../../mixins/getWeatherIcon'
 
@@ -47,14 +47,14 @@ const getWeatherData = () => {
 
 // 本日から８日間分のUNIX時間を取得（ ※API取得できるまでの暫定的な処理 ）
 // 今日の日付を取得
-const today = new Date();
+const today = new Date()
 // 7日分のUNIX時間を格納する配列を宣言
-const unixTimes: number[] = [];
+const unixTimes: number[] = []
 // 7日分のUNIX時間を計算し、配列に追加
 for (let i = 0; i < 8; i++) {
-  const date = new Date(today.getTime() + i * 24 * 60 * 60 * 1000);
-  const unixTime = Math.floor(date.getTime() / 1000);
-  unixTimes.push(unixTime);
+  const date = new Date(today.getTime() + i * 24 * 60 * 60 * 1000)
+  const unixTime = Math.floor(date.getTime() / 1000)
+  unixTimes.push(unixTime)
 }
 
 watch(
@@ -71,6 +71,7 @@ watch(
 <template>
   <div class="df">
     <HeadingLevel2
+      class="df__heading"
       tag="h2"
       text="Daily Forecast"
     />
@@ -84,7 +85,7 @@ watch(
         >
           <!-- <p class="df__main__date">{{ formatDate2(oneDay.dt) }}</p> -->
           <p class="df__main__date">{{ formatDate2(unixTimes[index]) }}</p>
-					
+
           <div class="df__main__mid">
             <p class="df__main__mid__icon">
               <img
@@ -92,14 +93,16 @@ watch(
                 alt="Weather Icon"
               />
             </p>
-							
+
             <p class="df__main__mid__temp">
-              {{ formatkelvinToCelsius(oneDay.temp.max) }} / 
+              {{ formatkelvinToCelsius(oneDay.temp.max) }} /
               {{ formatkelvinToCelsius(oneDay.temp.min) }}°C
             </p>
           </div>
-							
-          <p class="df__main__description">{{ oneDay.weather[0].description }}</p>
+
+          <p class="df__main__description">
+            {{ oneDay.weather[0].description }}
+          </p>
         </li>
       </ul>
     </div>
@@ -108,37 +111,44 @@ watch(
 
 <style lang="scss" scoped>
 .df {
-	&__main {
-		&__list {
-			&__item {
-				display: flex;
-				justify-content: space-between;
-				align-items: center;
+  &__heading {
+    margin-bottom: 1.6rem;
+  }
 
-			}
-		}
+  &__main {
+    &__list {
+      &__item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1.4rem;
+      }
+    }
 
-		&__date {
+    &__date {
+      flex: 1;
+    }
 
-		}
+    &__mid {
+      flex: 1;
+      display: flex;
+      // justify-content: space-between;
+      align-items: center;
 
-		&__mid {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
+      &__icon {
+        width: 5rem;
+      }
 
-			&__icon {
+      // &__temp {
+      // }
+    }
 
-			}
-
-			&__temp {
-
-			}
-		}
-
-		&__description {
-			
-		}
-	}
+    &__description {
+      flex: 1;
+      text-align: right;
+      font-size: 1.2rem;
+      color: #8a8a8a;
+    }
+  }
 }
 </style>
