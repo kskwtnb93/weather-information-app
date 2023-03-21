@@ -151,4 +151,31 @@ watch(
     }
   }
 }
+
+@media screen and (max-width: 750px) {
+  .df {
+    // &__heading {
+    // 	margin-bottom: 1.6rem;
+    // }
+
+    &__main {
+      // &__list {
+      // 	&__item {
+      // 	}
+      // }
+
+      // &__date {
+      // }
+
+      &__mid {
+        &__icon {
+          margin: -0.5rem 0;
+        }
+      }
+
+      // &__description {
+      // }
+    }
+  }
+}
 </style>
