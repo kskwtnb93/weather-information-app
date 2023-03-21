@@ -14,6 +14,7 @@ import { Icon, Style } from 'ol/style'
 
 import CurrentWeatherData from '../templates/CurrentWeatherData.vue'
 import HourlyForecast from '../templates/HourlyForecast.vue'
+import DailyForecast from '../templates/DailyForecast.vue'
 
 // 経度・緯度の初期値は東京駅
 // const lat = ref<number>(35.680959106959)
@@ -145,6 +146,13 @@ onMounted(() => {
 
     <div class="children">
       <HourlyForecast
+        :lat="lat"
+        :lon="lon"
+      />
+    </div>
+
+    <div class="children">
+      <DailyForecast
         :lat="lat"
         :lon="lon"
       />
