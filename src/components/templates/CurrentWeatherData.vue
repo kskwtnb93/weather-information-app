@@ -245,8 +245,7 @@ watch(
 
     &__header {
       &__datetime {
-        font-size: 1.4rem;
-        color: #eb6e4c;
+        font-size: 1.6rem;
         margin-bottom: 0.8rem;
       }
 
