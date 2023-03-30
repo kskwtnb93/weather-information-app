@@ -13,8 +13,6 @@ By including the longitude and latitude obtained from the map in the OpenWeather
 Below are the types of weather information that can be retrieved within this application.
 
 - [Current weather data](https://openweathermap.org/current)
-- [Hourly forecast](https://openweathermap.org/api/hourly-forecast)
-- [Daily Forecast 16 Days](https://openweathermap.org/forecast16)
 
 # DEMO
 
@@ -82,17 +80,6 @@ To use the application, follow these steps:
 2. Find the location on the map where you want to know the weather, and click or tap on it. The map can be moved and zoomed in and out by mouse or tap.
 3. A marker indicating the selected location will appear where you click or tap.
 4. If the API response is returned normally, weather information for the selected location will be displayed.
-
-# Note
-
-The following are not functional in this application because API keys are charged.
-
-- [Hourly forecast](https://openweathermap.org/api/hourly-forecast)
-- [Daily Forecast 16 Days](https://openweathermap.org/forecast16)
-
-Therefore, dummy data is used, and for the Hourly Forecast and Daily Forecast 16 Days, the latitude and longitude do not change. The data will not be changed even if the longitude or latitude changes.
-
-To make each of them work, you need to subscribe to a paid plan of OpenWeather API and edit the code.
 
 # Author
 
